@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Psychic Game</title>
+    <title>Document</title>
   </head>
   <body>
     <h1>The Psychic Game</h1>
@@ -13,74 +13,6 @@
     <p>Loses : <span id="lose"></span></p>
     <p>Guesses Left : <span id="Left"></span></p>
     <p>Your Guesses so far : <span id="GuessesSoFar"></span></p>
-
-    <script type="text/javascript">
-      //win and lose score variables
-      var winInput = document.querySelector("#win");
-      var loseInput = document.querySelector("#lose");
-      var winScore = 0;
-      var loseScore = 0;
-      winInput.innerHTML = winScore;
-      loseInput.innerHTML = loseScore;
-
-      function winScoreUp(winScore) {
-        winScore++;
-      }
-      function loseScoreUp(loseScore) {
-        loseScore++;
-      }
-      var leftNumber = 9;
-
-      //variables for all character and computer's random choice
-      var alphabet = "abcdefghijklmnopqrstuvwxyz";
-      var t = Math.floor(Math.random() * 26);
-      var computerChoice = alphabet.charAt(t);
-      var allAlphabetChar = alphabet.split("").join(",");
-
-      //checking process
-      console.log(allAlphabetChar);
-      console.log(computerChoice);
-
-      //js for Your gusses so far
-      //where guess list goes
-      var guessInput = document.querySelector("#GuessesSoFar");
-      //array of guesses
-      var guessArray = [];
-
-      //defining keydown event
-      document.addEventListener("keydown", function(event) {
-        //check which key was pressed
-        console.log(event.key);
-
-        if (event.key == computerChoice) {
-          //if computer choice and pressed key is equal
-          winScore += 1; //add win score
-          guessArray.length = 0; //empty the array
-          leftNumber = 9; //change guess number to 9
-        } else if (
-          // not equal and if
-          allAlphabetChar.indexOf(event.key) > -1 && //if pressed key is alphabet
-          guessArray.indexOf(event.key) === -1 //and array does not include
-        ) {
-          guessArray.push(event.key); //add it to array
-        }
-        console.log(guessArray); //check if it is in array
-        guessInput.innerHTML = guessArray; //print array
-
-        if (guessArray.length > 8) {
-          //if guesses are more than 9
-          guessArray.length = 0; //empty the array
-          loseScore += 1; //and add the lose score
-        }
-        //for the left number calculation
-        var leftNumber = 9 - guessArray.length;
-        var leftGuess = document.querySelector("#Left");
-        leftGuess.innerHTML = leftNumber;
-
-        //Win and lose score not working and random number rechoose
-      });
-      winInput.innerHTML = winScore;
-      loseInput.innerHTML = loseScore;
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
